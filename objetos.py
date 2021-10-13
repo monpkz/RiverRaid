@@ -201,6 +201,11 @@ class Obj:
   def mostrar(self):
     obj = self.ty
 
+    if self.t_expl > 20:
+        obj = 12
+    elif self.t_expl:
+        obj = 13
+
     # segun el tipo de objeto y la posicion donde lo queremos mostras
     # se se van creando pequeños cuadrados del color elegido
     for col in range(len(self.mp[obj][0])):
@@ -211,3 +216,6 @@ class Obj:
           w = int(self.w/len(self.mp[obj][0]))
           h = int(self.h/len(self.mp[obj]))
           self.win.fill(self.col[self.mp[obj][lin][col]], rect=[x, y, w, h])
+    
+    if self.t_expl:
+      self.t_expl -= 1
